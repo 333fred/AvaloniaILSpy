@@ -53,6 +53,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia;
 using Avalonia.Interactivity;
 using Avalonia.Controls.Shapes;
+using ICSharpCode.Decompiler.CSharp.ProjectDecompiler;
 
 namespace ICSharpCode.ILSpy.TextView
 {

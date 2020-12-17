@@ -161,14 +161,11 @@ namespace ICSharpCode.ILSpy.Analyzers.Builtin
 								break;
 
 							case HandleKind.StandaloneSignature:
-								var signature = module.DecodeMethodSignature((StandaloneSignatureHandle)member, genericContext);
-								foreach (var type in signature.ParameterTypes) {
-									type.AcceptVisitor(visitor);
-								}
+								var (_, fpt) = module.DecodeMethodSignature((StandaloneSignatureHandle)member, genericContext);
+								fpt.AcceptVisitor(visitor);
 
-								signature.ReturnType.AcceptVisitor(visitor);
-
-								if (visitor.Found) return;
+								if (visitor.Found)
+									return;
 								break;
 
 							default:
